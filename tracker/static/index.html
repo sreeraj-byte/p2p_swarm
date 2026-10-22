@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P Swarm Monitor</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Section 8: Tracker Unreachable Banner -->
+  <div id="tracker-banner" class="hidden">
+    <span id="tracker-banner-msg">⚠️ Tracker Unreachable — Attempting to reconnect...</span>
+    <span class="badge badge-offline">OFFLINE</span>
+  </div>
+
+  <!-- Section 1: Header with TLS and AUTH badges, progress, speed, ETA, state -->
+  <header>
+    <div class="header-top">
+      <div class="title-area">
+        <h1>
+          <span id="swarm-name">P2P Swarm</span>
+          <span id="swarm-id" class="swarm-id-tag">--------</span>
+        </h1>
+      </div>
+      <div class="badges">
+        <span id="badge-tls" class="badge badge-tls">TLS ON</span>
+        <span id="badge-auth" class="badge badge-auth">AUTH ON</span>
+        <span id="badge-state" class="badge badge-state">IDLE</span>
+      </div>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar-bg">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+      </div>
+      <div class="progress-labels">
+        <span id="progress-text">0 / 0 pieces (0%)</span>
+        <span id="progress-bytes">0 B / 0 B</span>
+      </div>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-title">Transfer Speed</div>
+        <div id="metric-speed" class="metric-value">0 B/s</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Estimated Time</div>
+        <div id="metric-eta" class="metric-value">--:--</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Files Complete</div>
+        <div id="metric-files" class="metric-value">0 / 0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Bad Pieces</div>
+        <div id="metric-bad" class="metric-value">0</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-grid">
+    <!-- Top Row: Transfer Map & Devices -->
+    <div class="two-col">
+      <!-- Section 3: Live Transfer Map (Inline SVG) -->
+      <section class="section-card">
+        <div class="section-header">
+          <h2>Live Transfer Map</h2>
+          <span class="section-subtitle">Real-time throughput flow</span>
+        </div>
+        <div class="svg-container">
+          <svg id="transfer-svg" viewBox="0 0 800 240"></svg>
+        </div>
+      </section>
+
+      <!-- Section 2: Devices -->
+      <section class="section-card">
+        <div class="section-header">
+          <h2>Devices</h2>
+          <span id="devices-count" class="section-subtitle">0 discovered</span>
+        </div>
+        <div id="devices-container" class="devices-container"></div>
+      </section>
+    </div>
+
+    <!-- Section 4: Piece Map -->
+    <section class="section-card">
+      <div class="section-header">
+        <h2>Piece Map</h2>
+        <span id="piece-map-meta" class="section-subtitle">0 cells</span>
+      </div>
+      <div id="piece-legend" class="piece-legend"></div>
+      <div id="piece-grid" class="piece-grid"></div>
+    </section>
+
+    <!-- Bottom Row: Files & Sender Stats -->
+    <div class="two-col">
+      <!-- Section 5: Files -->
+      <section class="section-card">
+        <div class="section-header">
+          <h2>Files</h2>
+          <span id="files-summary" class="section-subtitle">0 files</span>
+        </div>
+        <div id="files-list" class="files-list"></div>
+      </section>
+
+      <!-- Section 6: Sender Stats Table -->
+      <section class="section-card">
+        <div class="section-header">
+          <h2>Sender Performance</h2>
+          <span id="senders-summary" class="section-subtitle">0 active seeders</span>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Sender</th>
+                <th>Endpoint</th>
+                <th>Pieces</th>
+                <th>Bytes</th>
+                <th>Speed</th>
+                <th>Failures</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="sender-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Section 7: Event Log -->
+    <section class="section-card">
+      <div class="section-header">
+        <h2>Event Log</h2>
+        <span class="section-subtitle">Newest first (max 200)</span>
+      </div>
+      <div id="events-list" class="event-log-container"></div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

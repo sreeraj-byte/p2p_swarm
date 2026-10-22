@@ -1,0 +1,25 @@
+# Environments
+.venv/
+env/
+venv/
+
+# Certificates and keys
+certs/
+*.pem
+*.key
+*.crt
+
+# Runtime data and test artifacts
+downloads/
+shared/
+sample_data/
+downloaded_data/
+*.part
+logs/
+
+# Python bytecode and caches
+__pycache__/
+pycache/
+*.py[cod]
+*$py.class
+.pytest_cache/
