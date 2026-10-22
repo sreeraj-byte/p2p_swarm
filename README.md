@@ -156,7 +156,7 @@ p2p_swarm/
 ### 1. Install
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/p2p_swarm.git
+git clone https://github.com/sreeraj-byte/p2p_swarm.git
 cd p2p_swarm
 python3 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
