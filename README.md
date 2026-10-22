@@ -4,7 +4,7 @@
 One receiver downloads different pieces of a file or folder from two or more senders at the same time, checks every piece, and rebuilds the files. All traffic is encrypted, only devices that know a secret join code can take part, and a live web dashboard shows what is happening.
 
 **Course project:** Computer Networks (CN), Geethanjali College of Engineering and Technology
-**Team:** NAME 1, NAME 2, NAME 3
+**Team:** Raj,Rahul,Rohit
 
 > Educational project. Use it only on networks and devices you own or have permission to use.
 
